@@ -1,0 +1,46 @@
+<h1>Listado de Clientes</h1>
+<hr>
+
+<div class="row">
+    <div class="col text-right">
+        <button class="btn btn-primary" routerLink="/clientes/nuevo">
+            <i class="fa fa-plus"></i>
+            Agregar</button>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">NIT</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Herramientas</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let clientes of cliente">
+            <td>{{ clientes.nit }}</td>
+            <td>{{ clientes.nombre }}</td>
+            <td>{{ clientes.direccion }}</td>
+            <td>{{ clientes.telefono }}</td>
+
+
+
+
+            <button class="btn btn-info mr-1" [routerLink]="['/clientes', clientes.nit]">
+                <i class="fa fa-pen"></i>
+                </button>
+            <button class="btn btn-info mr-1" (click)="borrarCliente (cliente);">
+                <i class="fa fa-trash"></i>
+                </button>
+
+
+        </tr>
+    </tbody>
+</table>
+
+<div class="alert alert-warning text-center mt-3">
+    <h4 class="alert-heading">No hay mas registros</h4>
+</div>
